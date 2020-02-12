@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
  
 public class GUIUtil {
-    private static String imageFolder = "E:/eclipse/workspace/hutibill/img";
+    private static String imageFolder = "img";
     
     public static void setImageIcon(JButton b, String fileName, String tip) {
         ImageIcon i = new ImageIcon(new File(imageFolder, fileName).getAbsolutePath());
@@ -96,7 +96,9 @@ public class GUIUtil {
  
     public static void useLNF() {
         try {
-            javax.swing.UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
+//            javax.swing.UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
+//            界面风格选择：https://blog.csdn.net/slinace/article/details/79185996
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
