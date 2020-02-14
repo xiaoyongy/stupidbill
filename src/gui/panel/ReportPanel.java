@@ -37,7 +37,7 @@ public class ReportPanel extends WorkingPanel {
 	@Override
 	public void updateData() {
 		// TODO Auto-generated method stub
-	    List<Record> rs = new ReportService().listThisMonthRecords(); 
+	    List<Record> rs = new ReportService().listThisMonthRecords();
 	    Image i = ChartUtil.getImage(rs, 350, 250);
 	    ImageIcon icon = new ImageIcon(i);
 	    l.setIcon(icon);

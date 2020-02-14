@@ -20,23 +20,24 @@ import util.ColorUtil;
 public class SpendPanel extends WorkingPanel {
     public static SpendPanel instance = new SpendPanel();
  
-    JLabel lMonthSpend = new JLabel("本月消费");
-    JLabel lTodaySpend = new JLabel("今日消费");
-    JLabel lAvgSpendPerDay = new JLabel("日均消费");
-    JLabel lMonthLeft = new JLabel("本月剩余");
-    JLabel lDayAvgAvailable = new JLabel("日均可用");
-    JLabel lMonthLeftDay = new JLabel("距离月末");
+    private JLabel lMonthSpend = new JLabel("本月消费");
+    private JLabel lTodaySpend = new JLabel("今日消费");
+    private JLabel lAvgSpendPerDay = new JLabel("日均消费");
+    private JLabel lMonthLeft = new JLabel("本月剩余");
+    private JLabel lDayAvgAvailable = new JLabel("日均可用");
+    private JLabel lMonthLeftDay = new JLabel("距离月末");
+
+    private JLabel vMonthSpend = new JLabel("");
+    private JLabel vTodaySpend = new JLabel("");
+    private JLabel vAvgSpendPerDay = new JLabel("");
+    private JLabel vMonthAvailable = new JLabel("");
+    private JLabel vDayAvgAvailable = new JLabel("");
+
+    private JLabel vMonthLeftDay = new JLabel("1");
+
+    private CircleProgressBar bar;
  
-    JLabel vMonthSpend = new JLabel("");
-    JLabel vTodaySpend = new JLabel("");
-    JLabel vAvgSpendPerDay = new JLabel("");
-    JLabel vMonthAvailable = new JLabel("");
-    JLabel vDayAvgAvailable = new JLabel("");
-    JLabel vMonthLeftDay = new JLabel("1");
- 
-    CircleProgressBar bar;
- 
-    public SpendPanel() {
+    private SpendPanel() {
         this.setLayout(new BorderLayout());
         bar = new CircleProgressBar();
         bar.setBackgroundColor(ColorUtil.blueColor);
@@ -106,13 +107,13 @@ public class SpendPanel extends WorkingPanel {
          vMonthAvailable.setText(spend.monthAvailable);
          vDayAvgAvailable.setText(spend.dayAvgAvailable);
          vMonthLeftDay.setText(spend.monthLeftDay);
- 
+
          bar.setProgress(spend.usagePercentage);
          if (spend.isOverSpend) {
             vMonthAvailable.setForeground(ColorUtil.warningColor);
             vMonthSpend.setForeground(ColorUtil.warningColor);
             vTodaySpend.setForeground(ColorUtil.warningColor);
-  
+
          } else {
             vMonthAvailable.setForeground(ColorUtil.grayColor);
             vMonthSpend.setForeground(ColorUtil.blueColor);
@@ -120,7 +121,7 @@ public class SpendPanel extends WorkingPanel {
          }
          bar.setForegroundColor(ColorUtil.getByPercentage(spend.usagePercentage));
          addListener();
- 
+
     }
  
     @Override

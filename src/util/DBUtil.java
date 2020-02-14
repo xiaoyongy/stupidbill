@@ -10,7 +10,7 @@ public class DBUtil {
     static String database = "hutubill";
     static String encoding = "UTF-8";
     static String loginName = "root";
-    static String password = "admin";
+    static String password = "root";
     static{
         try {
             Class.forName("com.mysql.jdbc.Driver");

@@ -6,7 +6,7 @@ import java.util.Date;
  
 import javax.swing.JOptionPane;
 
-import org.omg.CORBA.INTERNAL;
+//import org.omg.CORBA.INTERNAL;
 
 import entity.Category;
 import gui.panel.CategoryPanel;
@@ -37,7 +37,7 @@ public class RecordListener implements ActionListener {
        String comment = p.tfComment.getText();
        Date date = p.datepick.getDate();
        new RecordService().add(spend, c, comment, date);
-       MainPanel.instance.workingPanel.show(SpendPanel.instance);  
+       MainPanel.instance.workingPanel.show(SpendPanel.instance);
     }
  
 }
